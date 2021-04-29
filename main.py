@@ -193,7 +193,7 @@ def kopirajInPrilepiPodatke(url):
             newElement.clear()
             newElement.send_keys(inputValues[newInputeElements.index(newElement)])
         except Exception as e:
-            print(str(e))
+            
             continue
 
     newTextElements= driver.find_elements_by_tag_name("textarea")
@@ -203,7 +203,7 @@ def kopirajInPrilepiPodatke(url):
             newElement.clear()
             newElement.send_keys(textValues[newTextElements.index(newElement)])
         except Exception as  e:
-            print(str(e))
+            
             continue
 
     newSelects = driver.find_elements_by_tag_name("select")
