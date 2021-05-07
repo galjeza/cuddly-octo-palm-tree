@@ -113,7 +113,7 @@ def pridobiPodatkeZaPrvoStran():
 
     gorivo = driver.find_element_by_name("gorivo").get_attribute("value")
     if gorivo == "elektro pogon":
-           gorivo = "-e-pogon"
+           gorivo = "e-pogon"
 
        
     print("=> osnovni podatki o avtu pridobljeni ")
