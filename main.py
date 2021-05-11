@@ -91,7 +91,8 @@ def ustvariNovOglasStran():
     Select(driver.find_element_by_name("oblika")).select_by_index(0)
     Select(driver.find_element_by_name("mesec")).select_by_value(mesReg)
     Select(driver.find_element_by_name("leto")).select_by_visible_text(letoReg)
-    driver.find_element_by_xpath("//*[contains(text(),'"+gorivo+"')]").click()
+    driver.execute_script("arguments[0].click();", driver.find_element_by_xpath("//*[contains(text(),'"+gorivo+"')]").click()) 
+    
     driver.find_element_by_name("potrdi").click()
     WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.CLASS_NAME, "supurl"))).click()
 
