@@ -80,6 +80,8 @@ def ustvariNovOglasStran():
     try:
         Select(driver.find_element_by_name("znamka")).select_by_value(znamka)
     except:
+        if(znamka=="Ssangyong"):
+           znamka = "SsangYong"
         strippedZnamka = znamka.replace(" ","")
         print(strippedZnamka)
         Select(driver.find_element_by_name("znamka")).select_by_value(strippedZnamka)
