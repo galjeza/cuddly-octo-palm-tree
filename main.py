@@ -13,6 +13,7 @@ headers = {
 }
 imenaSlik = []
 global znamka
+znamka = ""
 
 
 
