@@ -12,7 +12,7 @@ headers = {
     'Connection': 'keep-alive',
 }
 imenaSlik = []
-global znamka
+
 znamka = ""
 
 
@@ -74,6 +74,7 @@ def pojdiNaUredi(url):
 
 
 def ustvariNovOglasStran():
+    global znamka
     print("=> ustvarjam nov oglas")
     driver.execute_script("window.open('https://www.avto.net/_2016mojavtonet/ad_select_rubric_icons.asp?SID=10000');")
     global novOglasWindow
@@ -103,7 +104,7 @@ def ustvariNovOglasStran():
 
 def pridobiPodatkeZaPrvoStran():
     print("=> pridobivam podatke o avtu")
-    
+    global znamka
     global model
     global letoReg
     global mesReg
