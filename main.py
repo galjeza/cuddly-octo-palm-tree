@@ -12,6 +12,7 @@ headers = {
     'Connection': 'keep-alive',
 }
 imenaSlik = []
+global znamka
 
 
 
@@ -101,7 +102,7 @@ def ustvariNovOglasStran():
 
 def pridobiPodatkeZaPrvoStran():
     print("=> pridobivam podatke o avtu")
-    global znamka
+    
     global model
     global letoReg
     global mesReg
