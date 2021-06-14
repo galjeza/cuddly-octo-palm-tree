@@ -49,7 +49,9 @@ def pojdiNaUredi(url):
     kilometri = WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.XPATH, "/html/body/div[3]/div/small/div[1]/div[2]/div/div[7]/div[2]")))
     kilometri = kilometri.text.strip()
     kilometri = re.sub('[^A-Za-z0-9]+', '', kilometri)
-    imeAvta = driver.find_element_by_xpath("/html/body/div[3]/div/div/div/div/div[2]/h1").text.strip()
+    imeAvta = driver.find_element_by_xpath("/html/body/div[3]/div/div/div/div/div/h1").text.strip()
+          
+    
     imeAvta = re.sub('[^A-Za-z0-9]+', '', imeAvta)
     slikeElements = driver.find_elements_by_tag_name("p")
     i = 1
