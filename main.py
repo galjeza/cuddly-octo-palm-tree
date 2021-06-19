@@ -164,7 +164,7 @@ def kopirajInPrilepiPodatke(url):
     #spremeni podatek zato da nebo isti oglas v arhivu
     randoma = str(random.randint(1998, 2021))
 
-    randomc = str(int(driver.find_element_by_name("cena").text) + 500)
+    randomc = str(int(float(driver.find_element_by_name("cena").text)) + 500)
     
     randomb = str(random.randint(100000, 300000))
     driver.find_element_by_name("letoReg").click()
