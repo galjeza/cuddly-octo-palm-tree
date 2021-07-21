@@ -254,6 +254,7 @@ def dodajSlike():
      WebDriverWait(driver, 10).until(ec.presence_of_element_located((By.XPATH, "/html/body/div[1]/div[3]/div[3]/a/strong"))).click()
     except:
         print("")
+    time.sleep(5)
     try:
         driver.find_element_by_xpath(
             "//*[text()='Ali bi raje fotografije objavili 1 po 1, posamično? Kliknite tukaj za posamično dodajanje fotografij.']").click()
