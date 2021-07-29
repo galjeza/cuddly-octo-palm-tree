@@ -86,6 +86,7 @@ def ustvariNovOglasStran():
         driver.find_element_by_name("znamka")
     except:
         time.sleep(60*60)
+        driver.get("https://www.avto.net/_2016mojavtonet/ad_select_rubric_icons.asp?SID=10000")
     try:
         Select(driver.find_element_by_name("znamka")).select_by_value(znamka)
     except:
