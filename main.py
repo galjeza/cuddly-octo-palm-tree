@@ -83,6 +83,10 @@ def ustvariNovOglasStran():
     novOglasWindow = driver.window_handles[1]
     driver.switch_to.window(novOglasWindow)
     try:
+        driver.find_element_by_name("znamka")
+    except:
+        time.sleep(60*60)
+    try:
         Select(driver.find_element_by_name("znamka")).select_by_value(znamka)
     except:
         if(znamka=="Ssangyong"):
