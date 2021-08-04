@@ -21,6 +21,7 @@ def login(email, password):
     print("=> Prijavljam se v avto.net")
     box = WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.NAME, "enaslov")))
     driver.execute_script("document.getElementsByName('enaslov')[0].value='"+email+"'")
+    time.sleep(1)
 
     box2 = driver.find_element_by_xpath("//input[@type='password']")
     box2.click()
@@ -89,6 +90,7 @@ def ustvariNovOglasStran():
         driver.get("https://www.avto.net/_2016mojavtonet/ad_select_rubric_icons.asp?SID=10000")
     try:
         Select(driver.find_element_by_name("znamka")).select_by_value(znamka)
+        time.sleep(2)
     except:
         if(znamka=="Ssangyong"):
            znamka = "SsangYong"
@@ -98,14 +100,21 @@ def ustvariNovOglasStran():
 
     try:
         Select(driver.find_element_by_name("model")).select_by_value(model)
+           
     except:
         Select(driver.find_element_by_name("model")).select_by_value("modela ni na seznamu")
+    time.sleep(1)       
     Select(driver.find_element_by_name("oblika")).select_by_index(0)
+    time.sleep(1)
     Select(driver.find_element_by_name("mesec")).select_by_value(mesReg)
+    time.sleep(1)
     Select(driver.find_element_by_name("leto")).select_by_visible_text(letoReg)
+    time.sleep(1)
     driver.execute_script("arguments[0].click();", driver.find_element_by_xpath("//*[contains(text(),'"+gorivo+"')]")) 
+    time.sleep(1)
     
     driver.find_element_by_name("potrdi").click()
+    time.sleep(1)
     WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.CLASS_NAME, "supurl"))).click()
 
 
@@ -175,12 +184,15 @@ def kopirajInPrilepiPodatke(url):
     driver.find_element_by_name("letoReg").click()
     driver.find_element_by_name("letoReg").clear()
     driver.find_element_by_name("letoReg").send_keys(randoma)
+    time.sleep(1)
     driver.find_element_by_name("prevozenikm").click()
     driver.find_element_by_name("prevozenikm").clear()
     driver.find_element_by_name("prevozenikm").send_keys(randomb)
+    time.sleep(1)
     driver.find_element_by_name("cena").click()
     driver.find_element_by_name("cena").clear()
     driver.find_element_by_name("cena").send_keys(randomc)
+    time.sleep(1)
     driver.find_element_by_name("ADVIEW").click()
 
     driver.get(url)
@@ -211,6 +223,7 @@ def kopirajInPrilepiPodatke(url):
             newElement.click()
             newElement.clear()
             newElement.send_keys(inputValues[newInputeElements.index(newElement)])
+            time.sleep(1)
         except Exception as e:
             
             continue
@@ -221,6 +234,7 @@ def kopirajInPrilepiPodatke(url):
             newElement.click()
             newElement.clear()
             newElement.send_keys(textValues[newTextElements.index(newElement)])
+            time.sleep(1)
         except Exception as  e:
             
             continue
@@ -228,17 +242,21 @@ def kopirajInPrilepiPodatke(url):
     newSelects = driver.find_elements_by_tag_name("select")
     for n in newSelects:
         Select(n).select_by_value(selectValues[newSelects.index(n)])
+        time.sleep(1)
 
     for checkbox in checkedCheckboxes:
         newCheckBox = WebDriverWait(driver, 10).until(ec.element_to_be_clickable((By.NAME, checkbox)))
         if newCheckBox.is_selected() != True:
             try:
                 newCheckBox.click()
+                time.sleep(1)
             except:
                 try:
                     driver.execute_script("arguments[0].click();", newCheckBox)
+                    time.sleep(1)
                 except:
                     newCheckBox.send_keys(Keys.SPACE)
+                    time.sleep(1)
     porabaOBJAVI = driver.find_element_by_name("porabaOBJAVI")
     if porabaOBJAVI.is_selected():
         porabaOBJAVI.click()
@@ -271,6 +289,7 @@ def dodajSlike():
                 driver.find_element_by_name("fotografija").send_keys(celoIme)
                 driver.find_element_by_name("gumb" + str(n + 1)).click()
                 n = n + 1
+                time.sleep(1)
 
     except:
         for imeDatoteke in imenaSlik:
