@@ -21,7 +21,9 @@ def login(email, password):
     print("=> Prijavljam se v avto.net")
     time.sleep(10)
     try:
-        driver.find_element_by_id("CybotCookiebotDialogBodyLevelButtonAccept").click()       
+        driver.find_element_by_id("CybotCookiebotDialogBodyLevelButtonAccept").click()
+    except:
+        print("...")
            
     
     box = WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.NAME, "enaslov")))
@@ -29,6 +31,8 @@ def login(email, password):
     time.sleep(1)
     try:
         driver.find_element_by_id("CybotCookiebotDialogBodyLevelButtonAccept").click()          
+    except:
+         print("...")
 
     box2 = driver.find_element_by_xpath("//input[@type='password']")
     box2.click()
