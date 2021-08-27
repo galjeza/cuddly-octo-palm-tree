@@ -26,7 +26,7 @@ def login(email, password):
         print("...")
            
     
-    box = WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.NAME, "enaslov")))
+    WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.NAME, "enaslov")))
     driver.execute_script("document.getElementsByName('enaslov')[0].value='"+email+"'")
     time.sleep(1)
     try:
