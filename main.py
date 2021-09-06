@@ -120,11 +120,14 @@ def ustvariNovOglasStran():
     try:
         Select(driver.find_element_by_name("mesec")).select_by_value(mesReg)
     except:
-        Select(driver.find_element_by_name("mesec")).select_by_value("NOVO")                  
+        Select(driver.find_element_by_name("mesec")).select_by_value("9")                  
            
     
     time.sleep(1)
-    Select(driver.find_element_by_name("leto")).select_by_visible_text(letoReg)
+    try:
+        Select(driver.find_element_by_name("leto")).select_by_visible_text(letoReg)
+    except:
+        Select(driver.find_element_by_name("leto")).select_by_visible_text("NOVO vozilo")
     time.sleep(1)
     driver.execute_script("arguments[0].click();", driver.find_element_by_xpath("//*[contains(text(),'"+gorivo+"')]")) 
     time.sleep(1)
