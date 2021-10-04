@@ -120,7 +120,7 @@ def ustvariNovOglasStran():
     try:
         Select(driver.find_element_by_name("mesec")).select_by_value(mesReg)
     except:
-        Select(driver.find_element_by_name("mesec")).select_by_value("9")                  
+        Select(driver.find_element_by_name("mesec")).select_by_value("10")                  
            
     
     time.sleep(1)
