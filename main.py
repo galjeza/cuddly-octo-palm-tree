@@ -466,6 +466,8 @@ try:
         if len(sheet.cell(emailRow,3).value.strip())<5:
             pathToProfile = getPathToProfile()
             sheet.update_cell(emailRow,3,pathToProfile)
+        else:
+           pathToProfile = sheet.cell(emailRow,3).value.strip()
 
 
         root.mainloop()
