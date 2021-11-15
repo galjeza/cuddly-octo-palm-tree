@@ -62,6 +62,7 @@ def login(email, password):
     time.sleep(10)
     WebDriverWait(driver, 10000).until(ec.visibility_of_element_located((By.CLASS_NAME, "mojtrg")))
     print("=> prijavljen v avto.net ")
+    time.sleep(20)
 
 
 def pojdiNaUredi(url):
