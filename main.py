@@ -457,7 +457,7 @@ client = gspread.authorize(creds)
 sheet = client.open("avtonetbot dostop").sheet1  # Open the spreadhseet
 
 try:
-    global pathToProfile
+    
     emailRow = sheet.find(email).row
     placanoCell = sheet.cell(emailRow, 2).value.strip()
     if placanoCell == "NE":
@@ -469,7 +469,7 @@ try:
             pathToProfile = getPathToProfile()
             sheet.update_cell(emailRow,3,pathToProfile)
         else:
-           global pathToProfile
+           
            pathToProfile = sheet.cell(emailRow,3).value.strip()
 
 
