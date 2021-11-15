@@ -15,7 +15,7 @@ znamka = ""
 pathToProfile = ""
 
 def getPathToProfile():
-
+   
     root.withdraw()
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -467,11 +467,13 @@ try:
             pathToProfile = getPathToProfile()
             sheet.update_cell(emailRow,3,pathToProfile)
         else:
+           global pathToProfile
            pathToProfile = sheet.cell(emailRow,3).value.strip()
 
 
         root.mainloop()
 except:
+    print("google sheets eroor")
     print("NISTE NAROČENI NA PROGRAM!")
     print("ZA NAKUP PROGRAMA PIŠITE NA gal.jeza@protonmail.com")
     print("ČE STE NAROČENI NA PROGRAM IN VSEENO VIDITE TO SPOROČILO ME KONTAKTIRAJTE")
