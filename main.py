@@ -469,18 +469,9 @@ try:
         print("ČE STE NAROČENI NA PROGRAM IN VSEENO VIDITE TO SPOROČILO ME KONTAKTIRAJTE")
     else:
         print("€€")
-        if len(sheet.cell(emailRow,3).value.strip())<5:
-            print("No profile data found in database")
-            pathToProfile = getPathToProfile()
-            print("Got path to profile data.")
-            sheet.update_cell(emailRow,3,pathToProfile)
-            print("Database updated.")
-            print("Program uspešno posodobljen. Prosim, da program vgasnete in ga znova prižgete.")
-            
-        else:
-           
-           pathToProfile = sheet.cell(emailRow,3).value.strip()
-
+        usage = sheet.cell(emailRow,3).value.strip()
+        usage = int(usage) +1
+        sheet.update_cell(emailRow,3,str(usage))
 
         root.mainloop()
 except(err):
