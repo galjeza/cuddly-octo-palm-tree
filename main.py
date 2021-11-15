@@ -474,7 +474,8 @@ try:
 
 
         root.mainloop()
-except:
+except(err):
+    print(err)
     print("google sheets eroor")
     print("NISTE NAROČENI NA PROGRAM!")
     print("ZA NAKUP PROGRAMA PIŠITE NA gal.jeza@protonmail.com")
