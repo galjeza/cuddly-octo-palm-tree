@@ -361,6 +361,7 @@ def pokaziPopup():
 
 
 def main():
+    global pathToProfile
     pause = int(pauseEntry.get())
 
     urlji = []
