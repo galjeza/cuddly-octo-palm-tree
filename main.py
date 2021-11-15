@@ -475,6 +475,7 @@ try:
             print("Got path to profile data.")
             sheet.update_cell(emailRow,3,pathToProfile)
             print("sheet updated.")
+            root.mainloop()
         else:
            
            pathToProfile = sheet.cell(emailRow,3).value.strip()
