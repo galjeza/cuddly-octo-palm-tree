@@ -12,7 +12,7 @@ headers = {
 imenaSlik = []
 
 znamka = ""
-global pathToProfile = ""
+pathToProfile = ""
 
 def getPathToProfile():
     print("Getting google chrome user data")
