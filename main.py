@@ -467,7 +467,7 @@ try:
         print("ZA NAKUP PROGRAMA PIŠITE NA gal.jeza@protonmail.com")
         print("ČE STE NAROČENI NA PROGRAM IN VSEENO VIDITE TO SPOROČILO ME KONTAKTIRAJTE")
     else:
-        print("€€)
+        print("€€")
         if len(sheet.cell(emailRow,3).value.strip())<5:
             print("No profile data found in database")
             pathToProfile = getPathToProfile()
