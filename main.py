@@ -362,14 +362,14 @@ def pokaziPopup():
 
 
 def main():
-    global pathToProfile
+    g
     pause = int(pauseEntry.get())
 
     urlji = []
     root.withdraw()
     global driver
     chrome_options = Options()
-    chrome_options.add_argument("user-data-dir = " +pathToProfile)
+    
     chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     print("=> vsi gonilniki uspešno pridobljeni")
