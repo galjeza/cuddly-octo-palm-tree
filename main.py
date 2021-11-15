@@ -20,6 +20,7 @@ def getPathToProfile():
     chrome_options = Options()
     #chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+    time.sleep(3)
     driver.maximize_window()
     driver.get("chrome://version/")
     print("getting data from chrome://version/")
