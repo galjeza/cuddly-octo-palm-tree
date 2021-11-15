@@ -362,7 +362,7 @@ def pokaziPopup():
 
 
 def main():
-    g
+    
     pause = int(pauseEntry.get())
 
     urlji = []
