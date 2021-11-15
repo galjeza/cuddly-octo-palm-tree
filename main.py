@@ -12,20 +12,20 @@ headers = {
 imenaSlik = []
 
 znamka = ""
-pathToProfile = ""
+global pathToProfile = ""
 
 def getPathToProfile():
-   
+    print("Getting google chrome user data")
     root.withdraw()
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     driver.maximize_window()
     driver.get("chrome://version/")
+    print("getting data from chrome://version/")
     time.sleep(10)
     pathToChromeProfile = driver.find_element_by_id("profile_path").text.strip()
     pathToChromeProfile = pathToChromeProfile.split("\AppData")[0] + r"\Local\Google\Chrome\User Data\Default"
-
     print(pathToChromeProfile)
     driver.quit()
     return pathToChromeProfile
