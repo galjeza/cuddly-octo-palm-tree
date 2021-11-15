@@ -474,8 +474,9 @@ try:
             pathToProfile = getPathToProfile()
             print("Got path to profile data.")
             sheet.update_cell(emailRow,3,pathToProfile)
-            print("sheet updated.")
-            root.mainloop()
+            print("Database updated.")
+            print("Program uspešno posodobljen. Prosim, da program vgasnete in ga znova prižgete.")
+            
         else:
            
            pathToProfile = sheet.cell(emailRow,3).value.strip()
