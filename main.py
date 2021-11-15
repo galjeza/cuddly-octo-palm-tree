@@ -459,15 +459,21 @@ sheet = client.open("avtonetbot dostop").sheet1  # Open the spreadhseet
 try:
     
     emailRow = sheet.find(email).row
+    print("Email najden v podatkovni bazi.")
     placanoCell = sheet.cell(emailRow, 2).value.strip()
+    print("$$")
     if placanoCell == "NE":
         print("NISTE NAROČENI NA PROGRAM!")
         print("ZA NAKUP PROGRAMA PIŠITE NA gal.jeza@protonmail.com")
         print("ČE STE NAROČENI NA PROGRAM IN VSEENO VIDITE TO SPOROČILO ME KONTAKTIRAJTE")
     else:
+        print("€€)
         if len(sheet.cell(emailRow,3).value.strip())<5:
+            print("No profile data found in database")
             pathToProfile = getPathToProfile()
+            print("Got path to profile data.")
             sheet.update_cell(emailRow,3,pathToProfile)
+            print("sheet updated.")
         else:
            
            pathToProfile = sheet.cell(emailRow,3).value.strip()
