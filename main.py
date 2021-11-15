@@ -59,7 +59,7 @@ def login(email, password):
     pravnoobvestilo = driver.find_element_by_id('pravnoobvestilo')
     driver.execute_script("arguments[0].click();", pravnoobvestilo)
     driver.execute_script("arguments[0].click();", driver.find_element_by_name("LOGIN"))
-
+    time.sleep(5)
     WebDriverWait(driver, 10000).until(ec.visibility_of_element_located((By.CLASS_NAME, "mojtrg")))
     print("=> prijavljen v avto.net ")
 
