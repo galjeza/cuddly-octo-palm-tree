@@ -194,8 +194,11 @@ def kopirajInPrilepiPodatke(url):
         textValues.append(tekst.text)
     selectElements = driver.find_elements_by_tag_name("select")
     selectValues = []
+    time.sleep(3)
     for select in selectElements:
+        time.sleep(1)
         selectedOption = Select(select).first_selected_option.get_attribute("value")
+        
         selectValues.append(selectedOption)
 
     checkedCheckboxes = []
