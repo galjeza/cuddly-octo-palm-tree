@@ -212,10 +212,12 @@ def kopirajInPrilepiPodatke(url):
         driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
         body = driver.find_element_by_xpath("/html/body")
         innerHTML = body.get_attribute("innerHTML").replace('"', '\\"')
+        driver.switch_to.default_content();
     except:
         print("")
     # spremeni podatek zato da nebo isti oglas v arhivu
     randoma = str(random.randint(1998, 2021))
+    time.sleep(2)
 
     randomc = str(int(float(driver.find_element_by_id("cena").get_attribute("value"))) + 500)
 
