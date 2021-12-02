@@ -14,6 +14,7 @@ imenaSlik = []
 znamka = ""
 pathToProfile = ""
 
+novoOkno = None
 
 
 
@@ -96,7 +97,7 @@ def ustvariNovOglasStran():
     print("=> ustvarjam nov oglas")
     driver.execute_script("window.open('https://www.avto.net/_2016mojavtonet/ad_select_rubric_icons.asp?SID=10000');")
     global novOglasWindow
-    novOglasWindow = driver.window_handles[1]
+    novOglasWindow = driver.window_handles[driver.window_handles.index(originalOglasWindow)+1]
     driver.switch_to.window(novOglasWindow)
     try:
         driver.find_element_by_name("znamka")
@@ -367,7 +368,7 @@ def main():
     driver.get("https://www.avto.net/_2016mojavtonet/")
     driver.maximize_window()
     global originalOglasWindow
-    originalOglasWindow = driver.window_handles[0]
+    originalOglasWindow = driver.current_window_handle
     try:
         login(email, geslo)
          
