@@ -405,7 +405,7 @@ def main():
         time.sleep(2)
         zapriBrowser()
         driver.close()
-        driver.switch_to.window(driver.window_handles[0])
+        driver.switch_to.window(originalOglasWindow)
         print("Obnovil sem toliko oglasov:" + str(urlji.index(url) + 1))
         time.sleep(pause * 60)
 
