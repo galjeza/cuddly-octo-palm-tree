@@ -62,7 +62,7 @@ def pojdiNaUredi(url):
         id = url.split("id=")[1]
         urediUrl = "https://www.avto.net/_2016mojavtonet/ad_edit.asp?id=" + id
 
-    kilometri = WebDriverWait(driver, 10).until(
+    kilometri = WebDriverWait(driver, 30).until(
         ec.visibility_of_element_located((By.XPATH, "/html/body/div[3]/div/small/div[1]/div[2]/div/div[7]/div[2]")))
     kilometri = kilometri.text.strip()
     kilometri = re.sub('[^A-Za-z0-9]+', '', kilometri)
