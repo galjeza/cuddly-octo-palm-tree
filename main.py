@@ -1,5 +1,6 @@
 abeceda = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
            'w', 'x', 'y', 'z']
+rabiHeadless = true;
 headers = {
     'Accept-Encoding': 'gzip, deflate, sdch',
     'Accept-Language': 'en-US,en;q=0.8',
@@ -362,8 +363,10 @@ def main():
     root.withdraw()
     global driver
     chrome_options = Options()
+    if(rabiHeadless=="NE"):
+        chrome_options.add_argument("--headless")
+                      
     
-    #chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     print("=> vsi gonilniki uspešno pridobljeni")
 
@@ -463,6 +466,7 @@ try:
     emailRow = sheet.find(email).row
     print("Email najden v podatkovni bazi.")
     placanoCell = sheet.cell(emailRow, 2).value.strip()
+    rabiHeadless = sheet.cell(emailRow,10).value.strip()
     print("$$")
     if placanoCell == "NE":
         print("NISTE NAROČENI NA PROGRAM!")
