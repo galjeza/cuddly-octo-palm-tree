@@ -362,6 +362,8 @@ def main():
     root.withdraw()
     global driver
     chrome_options = Options()
+    chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument('--ignore-ssl-errors')
     if(rabiHeadless=="NE"):
         chrome_options.add_argument("--headless")
                       
