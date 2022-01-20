@@ -284,9 +284,13 @@ def kopirajInPrilepiPodatke(url):
                 except:
                     newCheckBox.send_keys(Keys.SPACE)
                     time.sleep(1)
-    porabaOBJAVI = driver.find_element_by_name("porabaOBJAVI")
-    if porabaOBJAVI.is_selected():
-        porabaOBJAVI.click()
+    try:
+         porabaOBJAVI = driver.find_element_by_name("porabaOBJAVI")
+         if porabaOBJAVI.is_selected():
+             porabaOBJAVI.click() 
+    except:
+           print("e")
+   
     print("=> podatki vstavljeni v nov oglas ")
 
 
