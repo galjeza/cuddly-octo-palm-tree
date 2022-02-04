@@ -119,13 +119,14 @@ def ustvariNovOglasStran():
         Select(driver.find_element_by_name("model")).select_by_value(model)
 
     except Exception as e:
+        print(e)
         try:
            errorModel = model.replace(" ","---")
            print(errorModel)
            Select(driver.find_element_by_name("model")).select_by_value(errorModel)
-        except:
+        except Exception as error:
+           print(error)
            print("Napaka")
-           print(e)
            print("Model: ")
            print(model)
         
