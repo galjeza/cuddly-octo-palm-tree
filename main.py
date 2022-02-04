@@ -116,6 +116,7 @@ def ustvariNovOglasStran():
         Select(driver.find_element_by_name("znamka")).select_by_value(strippedZnamka)
 
     try:
+        print(model)
         Select(driver.find_element_by_name("model")).select_by_value(model)
 
     except Exception as e:
