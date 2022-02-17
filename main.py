@@ -429,7 +429,7 @@ def main():
         driver.close()
         driver.switch_to.window(originalOglasWindow)
         print("Obnovil sem toliko oglasov:" + str(urlji.index(url) + 1))
-        time.sleep(pause * 60)
+        time.sleep(pause * 60+ random.randint(-10,15)* 60)
 
     print(">>>PROCES USPEŠNO ZAKLJUČEN<<<")
     time.sleep(3)
