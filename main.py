@@ -127,11 +127,6 @@ def ustvariNovOglasStran():
            Select(driver.find_element_by_name("model")).select_by_value(errorModel)
         except Exception as error:
            print(error)
-           print("Napaka")
-           print("Model: ")
-           print(model)
-        
-           driver.quit()
            Select(driver.find_element_by_name("model")).select_by_value("modela ni na seznamu")
     time.sleep(1)
     Select(driver.find_element_by_name("oblika")).select_by_index(0)
