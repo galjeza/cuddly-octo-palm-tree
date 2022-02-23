@@ -411,7 +411,7 @@ def main():
             urlji.append(result.find_element_by_class_name("Adlink").get_attribute("href"))
         except:
             print("Avto je že prodan")
-
+    print(urlji)
     for url in urlji:
         urlOglasa = url
         pojdiNaUredi(urlOglasa)
