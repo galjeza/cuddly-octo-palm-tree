@@ -402,7 +402,10 @@ def main():
     WebDriverWait(driver, 10000).until(ec.visibility_of_element_located((By.CLASS_NAME, "ResultsMenuBoxnazivTrgovec")))
 
     time.sleep(5)
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    total_height = int(driver.execute_script("return document.body.scrollHeight"))
+
+    for i in range(1, total_height, 5):
+        driver.execute_script("window.scrollTo(0, {});".format(i))
     time.sleep(5)
     results = driver.find_elements_by_class_name("ResultsAd")
     try:
