@@ -408,13 +408,6 @@ def main():
         driver.execute_script("window.scrollTo(0, {});".format(i))
     time.sleep(5)
     results = driver.find_elements_by_class_name("ResultsAd")
-    try:
-        driver.find_element_by_xpath("/html/body/div[1]/div[3]/div[2]/div[2]/form/div[104]/ul/a[1]/li").click()
-        resultstwo = driver.find_elements_by_class_name("ResultsAd")
-        for result in resultstwo:
-            results.append(result)
-    except:
-        pass
     for result in results:
         try:
             result.find_element_by_class_name("ResultsAdPriceRegular")
