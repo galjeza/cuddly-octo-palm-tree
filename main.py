@@ -170,6 +170,8 @@ def pridobiPodatkeZaPrvoStran():
     
     if gorivo == "elektro pogon":
         gorivo = "e-pogon"
+    if gorivo == "CNG plin":
+        gorivo = "CNG zemeljski plin"
 
     print("=> osnovni podatki o avtu pridobljeni ")
 
