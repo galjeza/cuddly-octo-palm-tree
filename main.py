@@ -414,7 +414,11 @@ def main():
     results = driver.find_elements_by_class_name("ResultsAd")
     for result in results:
         try:
-            result.find_element_by_class_name("ResultsAdPriceRegular")
+            
+            try:
+                result.find_element_by_class_name("ResultsAdPriceRegular")   
+            except:
+                result.find_element_by_class_name("ResultsAdPriceAkcijaCena")
             urlji.append(result.find_element_by_class_name("Adlink").get_attribute("href"))
         except:
             print("Avto je že prodan")
