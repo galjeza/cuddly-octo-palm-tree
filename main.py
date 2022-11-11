@@ -282,7 +282,7 @@ def kopirajInPrilepiPodatke(url):
     for n in newSelects:
         n.click()
         Select(n).select_by_value(selectValues[newSelects.index(n)])
-        time.sleep(1)
+        time.sleep(2)
 
     for checkbox in checkedCheckboxes:
         newCheckBox = WebDriverWait(driver, 10).until(ec.element_to_be_clickable((By.NAME, checkbox)))
