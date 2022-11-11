@@ -197,7 +197,7 @@ def kopirajInPrilepiPodatke(url):
     time.sleep(3)
     for select in selectElements:
         time.sleep(1)
-        selectedOption = Select(select).first_selected_option.get_attribute("value")
+        selectedOption = Select(select).first_selected_option.text()
         
         selectValues.append(selectedOption)
 
@@ -281,7 +281,8 @@ def kopirajInPrilepiPodatke(url):
     newSelects = driver.find_elements_by_tag_name("select")
     for n in newSelects:
         n.click()
-        Select(n).select_by_value(selectValues[newSelects.index(n)])
+        selectedOption = selectValues[newSelects.index(n)]
+        Select(n).select_by_visible_text(selectedOption)
         time.sleep(2)
 
     for checkbox in checkedCheckboxes:
