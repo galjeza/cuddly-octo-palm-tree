@@ -280,6 +280,7 @@ def kopirajInPrilepiPodatke(url):
 
     newSelects = driver.find_elements_by_tag_name("select")
     for n in newSelects:
+        n.click()
         Select(n).select_by_value(selectValues[newSelects.index(n)])
         time.sleep(1)
 
