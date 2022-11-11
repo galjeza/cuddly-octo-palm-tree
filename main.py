@@ -197,7 +197,7 @@ def kopirajInPrilepiPodatke(url):
     time.sleep(3)
     for select in selectElements:
         time.sleep(1)
-        selectedOption = Select(select).first_selected_option.text()
+        selectedOption = Select(select).first_selected_option.text
         
         selectValues.append(selectedOption)
 
