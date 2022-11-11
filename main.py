@@ -279,11 +279,17 @@ def kopirajInPrilepiPodatke(url):
 
     newSelects = driver.find_elements_by_tag_name("select")
     for n in newSelects:
-        n.click()
-        selectedOption = selectValues[newSelects.index(n)]
-        driver.execute_script("arguments[0].scrollIntoView();", n)
-        Select(n).select_by_visible_text(selectedOption)
-        time.sleep(2)
+        try:
+           n.click()
+           selectedOption = selectValues[newSelects.index(n)]
+           driver.execute_script("arguments[0].scrollIntoView();", n)
+           Select(n).select_by_visible_text(selectedOption)
+           time.sleep(2)   
+        except Exception as  e:
+            print("SELECT ERR")
+            continue
+                                 
+        
 
     for checkbox in checkedCheckboxes:
         newCheckBox = WebDriverWait(driver, 10).until(ec.element_to_be_clickable((By.NAME, checkbox)))
