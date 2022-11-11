@@ -11,7 +11,6 @@ headers = {
     'Connection': 'keep-alive',
 }
 imenaSlik = []
-
 znamka = ""
 pathToProfile = ""
 
@@ -282,6 +281,7 @@ def kopirajInPrilepiPodatke(url):
     for n in newSelects:
         n.click()
         selectedOption = selectValues[newSelects.index(n)]
+        driver.execute_script("arguments[0].scrollIntoView();", n)
         Select(n).select_by_visible_text(selectedOption)
         time.sleep(2)
 
