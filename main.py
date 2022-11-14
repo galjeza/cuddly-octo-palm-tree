@@ -280,11 +280,13 @@ def kopirajInPrilepiPodatke(url):
     newSelects = driver.find_elements_by_tag_name("select")
     for n in newSelects:
         try:
-           n.click()
+           
            selectedOption = selectValues[newSelects.index(n)]
            driver.execute_script("arguments[0].scrollIntoView();", n)
+           n.click()
+           time.sleep(1) 
            Select(n).select_by_visible_text(selectedOption)
-           time.sleep(2)   
+           time.sleep(1)   
         except Exception as  e:
             print("SELECT ERR")
             continue
