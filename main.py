@@ -13,6 +13,8 @@ headers = {
 imenaSlik = []
 znamka = ""
 pathToProfile = ""
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 novoOkno = None
 
@@ -52,6 +54,7 @@ def login(email, password):
 
 
 def pojdiNaUredi(url):
+           
     print("=> Pridobivam slike oglasa")
     driver.get(url)
     try:
