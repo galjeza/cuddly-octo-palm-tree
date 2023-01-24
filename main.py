@@ -77,7 +77,7 @@ def pojdiNaUredi(url):
         if urlSlike != None:
             filename = "avtonetdata/slikeAvta/" + abeceda[i] + kilometri + imeAvta + ".png"
             if path.exists(filename) == False:
-                r = requests.get(urlSlike, headers=headers, stream=True,verify=False)
+                r = requests.get(urlSlike, headers=headers, stream=True,verify="")
                 im = Image.open(BytesIO(r.content))
                 im = im.filter(ImageFilter.SMOOTH_MORE)
                 im.save(filename, quality=95, subsampling=0)
