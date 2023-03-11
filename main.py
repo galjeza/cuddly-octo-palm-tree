@@ -14,6 +14,8 @@ imenaSlik = []
 znamka = ""
 pathToProfile = ""
 import ssl
+from requests.utils import DEFAULT_CA_BUNDLE_PATH
+print(DEFAULT_CA_BUNDLE_PATH)
 ssl._create_default_https_context = ssl._create_unverified_context
 
 novoOkno = None
