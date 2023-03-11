@@ -13,11 +13,6 @@ headers = {
 imenaSlik = []
 znamka = ""
 pathToProfile = ""
-import ssl
-import os
-os.environ['WDM_SSL_VERIFY']= '0'
-ssl._create_default_https_context = ssl._create_unverified_context
-
 novoOkno = None
 
 
