@@ -388,13 +388,15 @@ def pokaziPopup():
 
 def main():
     pause = int(pauseEntry.get())
-
+    print("=")
     urlji = []
     root.withdraw()
     global driver
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('ignore-certificate-errors')
     chrome_options.add_argument('--ignore-ssl-errors')
+    chrome_options.addArguments("--disable-web-security");
+    chrome_options.addArguments("--allow-running-insecure-content");
     if(rabiHeadless=="NE"):
         chrome_options.add_argument("--headless")
                       
