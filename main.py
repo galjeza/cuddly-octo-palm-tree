@@ -390,14 +390,14 @@ def main():
     urlji = []
     root.withdraw()
     global driver
-    chrome_options = Options()
-    chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('ignore-certificate-errors')
     chrome_options.add_argument('--ignore-ssl-errors')
     if(rabiHeadless=="NE"):
         chrome_options.add_argument("--headless")
                       
     
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
     print("=> vsi gonilniki uspešno pridobljeni")
 
     driver.get("https://www.avto.net/_2016mojavtonet/")
