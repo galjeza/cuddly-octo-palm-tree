@@ -14,8 +14,8 @@ imenaSlik = []
 znamka = ""
 pathToProfile = ""
 import ssl
-from requests.utils import DEFAULT_CA_BUNDLE_PATH
-print(DEFAULT_CA_BUNDLE_PATH)
+import os
+os.environ['WDM_SSL_VERIFY']= '0'
 ssl._create_default_https_context = ssl._create_unverified_context
 
 novoOkno = None
