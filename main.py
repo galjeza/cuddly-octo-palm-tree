@@ -15,6 +15,8 @@ znamka = ""
 pathToProfile = ""
 novoOkno = None
 
+#asd
+
 
 
 
