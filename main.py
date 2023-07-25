@@ -396,9 +396,13 @@ def main():
     chrome_options.add_argument("--allow-running-insecure-content");
     if(rabiHeadless=="NE"):
         chrome_options.add_argument("--headless")
+
+   chromeVersion = "114.0.5735.16"
+   if(email == "dlcavto@gmail.com" ):
+        chromeVersion = "109.0.5414.25"                         
                       
 
-    driver = webdriver.Chrome(ChromeDriverManager(version="114.0.5735.16").install(), chrome_options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager(version=chromeVersion).install(), chrome_options=chrome_options)
     print("=> vsi gonilniki uspešno pridobljeni")
 
     driver.get("https://www.avto.net/_2016mojavtonet/")
