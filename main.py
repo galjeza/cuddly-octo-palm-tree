@@ -398,7 +398,7 @@ def main():
         chrome_options.add_argument("--headless")
                       
 
-    driver = webdriver.Chrome(ChromeDriverManager(version="109.0.5414.25").install(), chrome_options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager(version="114.0.5735.16").install(), chrome_options=chrome_options)
     print("=> vsi gonilniki uspešno pridobljeni")
 
     driver.get("https://www.avto.net/_2016mojavtonet/")
