@@ -398,7 +398,7 @@ def main():
         chrome_options.add_argument("--headless")
 
     chromeVersion = "114.0.5735.16"
-    if(email == "dlcavto@gmail.com"):
+    if(email == "dlcavto@gmail.com" || email=="avtomedvode@gmail.com" ):
         chromeVersion = "109.0.5414.25"                         
                       
 
