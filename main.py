@@ -399,7 +399,10 @@ def main():
 
     chromeVersion = "114.0.5735.16"
     if(email == "dlcavto@gmail.com" or email=="avtomedvode@gmail.com" ):
-        chromeVersion = "109.0.5414.25"                         
+        chromeVersion = "109.0.5414.25"
+    if(email == "meglic.zdenko@gmail.com"):
+        chromeVersion = "103.0.5060"           
+               
                       
 
     driver = webdriver.Chrome(ChromeDriverManager(version=chromeVersion).install(), chrome_options=chrome_options)
