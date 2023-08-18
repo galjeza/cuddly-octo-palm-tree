@@ -401,7 +401,7 @@ def main():
     if(email == "dlcavto@gmail.com" or email=="avtomedvode@gmail.com" ):
         chromeVersion = "109.0.5414.25"
     if(email == "meglic.zdenko@gmail.com"):
-        chromeVersion = "103.0.5060.134"           
+        chromeVersion = "116.0.5791.0"           
                
                       
 
