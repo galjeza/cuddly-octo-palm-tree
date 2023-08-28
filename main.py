@@ -388,8 +388,7 @@ def main():
     print("=")
     urlji = []
     root.withdraw()
-    global driver
-    service = Service()       
+    global driver   
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('ignore-certificate-errors')
     chrome_options.add_argument('--ignore-ssl-errors')
@@ -406,7 +405,7 @@ def main():
                
                       
 
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     print("=> vsi gonilniki uspešno pridobljeni")
 
     driver.get("https://www.avto.net/_2016mojavtonet/")
