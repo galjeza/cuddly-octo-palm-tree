@@ -406,7 +406,7 @@ def main():
                
                       
 
-    driver = webdriver.Chrome(Service=service, options=chrome_options)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     print("=> vsi gonilniki uspešno pridobljeni")
 
     driver.get("https://www.avto.net/_2016mojavtonet/")
