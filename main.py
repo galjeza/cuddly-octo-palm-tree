@@ -453,7 +453,7 @@ def main():
                         result.find_element(by=By.CLASS_NAME,value=("ResultsAdPriceRegular")   
                     except:
                         result.find_element(by=By.CLASS_NAME,value=("ResultsAdPriceAkcijaCena")
-                    urlji.append(result.find_element(by=By.CLASS_NAME,value=("Adlink").get_attribute("href"))
+                    urlji.append(result.find_element(by=By.CLASS_NAME,value="Adlink").get_attribute("href"))
                 except:
                     print("Avto je že prodan")
         except:
