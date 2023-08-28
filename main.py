@@ -26,7 +26,7 @@ def login(email, password):
     print("=> Prijavljam se v avto.net")
     time.sleep(10)
     try:
-        driver.find_element_by_id("CybotCookiebotDialogBodyLevelButtonAccept").click()
+        driver.find_element(by=By.ID,value="CybotCookiebotDialogBodyLevelButtonAccept").click()
     except:
         print("...")
 
@@ -34,7 +34,7 @@ def login(email, password):
     driver.execute_script("document.getElementsByName('enaslov')[0].value='" + email + "'")
     time.sleep(1)
     try:
-        driver.find_element_by_id("CybotCookiebotDialogBodyLevelButtonAccept").click()
+        driver.find_element(by=By.ID,value="CybotCookiebotDialogBodyLevelButtonAccept").click()
     except:
         print("...")
 
@@ -43,9 +43,9 @@ def login(email, password):
     box2.clear()
     box2.send_keys(password)
     time.sleep(3)
-    pravnoobvestilo = driver.find_element_by_id('pravnoobvestilo')
+    pravnoobvestilo = driver.find_element(by=By.ID,value='pravnoobvestilo')
     driver.execute_script("arguments[0].click();", pravnoobvestilo)
-    driver.execute_script("arguments[0].click();", driver.find_element_by_name("LOGIN"))
+    driver.execute_script("arguments[0].click();", driver.find_element(by=By.NAME,value="LOGIN"))
     time.sleep(2)
     WebDriverWait(driver, 10000).until(ec.visibility_of_element_located((By.CLASS_NAME, "mojtrg")))
     print("=> prijavljen v avto.net ")
@@ -102,52 +102,52 @@ def ustvariNovOglasStran():
     novOglasWindow = driver.window_handles[driver.window_handles.index(originalOglasWindow)+1]
     driver.switch_to.window(novOglasWindow)
     try:
-        driver.find_element_by_name("znamka")
+        driver.find_element(by=By.NAME,value="znamka")
     except:
         time.sleep(60 * 60)
         driver.get("https://www.avto.net/_2016mojavtonet/ad_select_rubric_icons.asp?SID=10000")
     try:
-        Select(driver.find_element_by_name("znamka")).select_by_value(znamka)
+        Select(driver.find_element(by=By.NAME,value="znamka")).select_by_value(znamka)
         time.sleep(2)
     except:
         if (znamka == "Ssangyong"):
             znamka = "SsangYong"
         strippedZnamka = znamka.replace(" ", "")
         print(strippedZnamka)
-        Select(driver.find_element_by_name("znamka")).select_by_value(strippedZnamka)
+        Select(driver.find_element(by=By.NAME,value="znamka")).select_by_value(strippedZnamka)
 
     try:
         print(model)
-        Select(driver.find_element_by_name("model")).select_by_value(model)
+        Select(driver.find_element(by=By.NAME,value="model")).select_by_value(model)
 
     except Exception as e:
         print(e)
         try:
            errorModel = model.replace(" ","---")
            print(errorModel)
-           Select(driver.find_element_by_name("model")).select_by_value(errorModel)
+           Select(driver.find_element(by=By.NAME,value="model")).select_by_value(errorModel)
         except Exception as error:
            print(error)
-           Select(driver.find_element_by_name("model")).select_by_value("modela ni na seznamu")
+           Select(driver.find_element(by=By.NAME,value="model")).select_by_value("modela ni na seznamu")
     time.sleep(1)
-    Select(driver.find_element_by_name("oblika")).select_by_index(0)
+    Select(driver.find_element(by=By.NAME,value="oblika")).select_by_index(0)
     time.sleep(1)
     try:
-        Select(driver.find_element_by_name("mesec")).select_by_value(mesReg)
+        Select(driver.find_element(by=By.NAME,value="mesec")).select_by_value(mesReg)
     except:
-        Select(driver.find_element_by_name("mesec")).select_by_value("10")
+        Select(driver.find_element(by=By.NAME,value="mesec")).select_by_value("10")
 
     time.sleep(1)
     try:
-        Select(driver.find_element_by_name("leto")).select_by_visible_text(letoReg)
+        Select(driver.find_element(by=By.NAME,value="leto")).select_by_visible_text(letoReg)
     except:
-        Select(driver.find_element_by_name("leto")).select_by_visible_text("NOVO vozilo")
+        Select(driver.find_element(by=By.NAME,value="leto")).select_by_visible_text("NOVO vozilo")
     time.sleep(1)
     driver.execute_script("arguments[0].click();",
                           driver.find_element(by=By.XPATH,value="//*[contains(text(),'" + gorivo + "')]"))
     time.sleep(1)
 
-    driver.find_element_by_name("potrdi").click()
+    driver.find_element(by=By.NAME,value="potrdi").click()
     time.sleep(1)
     WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.CLASS_NAME, "supurl"))).click()
 
@@ -162,12 +162,12 @@ def pridobiPodatkeZaPrvoStran():
     znamka = WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.NAME, "znamka"))).get_attribute(
         "value")
 
-    model = driver.find_element_by_name("model").get_attribute("value")
-    letoReg = driver.find_element_by_id("letoReg").get_attribute("value")
-    select = Select(driver.find_element_by_id("mesReg"))
+    model = driver.find_element(by=By.NAME,value="model").get_attribute("value")
+    letoReg = driver.find_element(by=By.ID,value="letoReg").get_attribute("value")
+    select = Select(driver.find_element(by=By.ID,value="mesReg"))
     mesReg = select.first_selected_option.text.strip()
 
-    gorivo = driver.find_element_by_name("gorivo").get_attribute("value")
+    gorivo = driver.find_element(by=By.NAME,value="gorivo").get_attribute("value")
     
     if gorivo == "elektro pogon":
         gorivo = "e-pogon"
@@ -210,7 +210,7 @@ def kopirajInPrilepiPodatke(url):
     print("=> vsi podatki o avtu kopirani ")
 
     try:
-        driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+        driver.switch_to.frame(driver.find_element(by=By.TAG_NAME,value="iframe"))
         body = driver.find_element(by=By.XPATH,value="/html/body")
         innerHTML = body.get_attribute("innerHTML").replace('"', '\\"')
         driver.switch_to.default_content();
@@ -220,22 +220,22 @@ def kopirajInPrilepiPodatke(url):
     randoma = str(random.randint(1998, 2021))
     time.sleep(2)
 
-    randomc = str(int(float(driver.find_element_by_id("cena").get_attribute("value"))) + 500)
+    randomc = str(int(float(driver.find_element(by=By.ID,value="cena").get_attribute("value"))) + 500)
 
     randomb = str(random.randint(100000, 300000))
-    driver.find_element_by_name("letoReg").click()
-    driver.find_element_by_name("letoReg").clear()
-    driver.find_element_by_name("letoReg").send_keys(randoma)
+    driver.find_element(by=By.NAME,value="letoReg").click()
+    driver.find_element(by=By.NAME,value="letoReg").clear()
+    driver.find_element(by=By.NAME,value="letoReg").send_keys(randoma)
     time.sleep(1)
-    driver.find_element_by_name("prevozenikm").click()
-    driver.find_element_by_name("prevozenikm").clear()
-    driver.find_element_by_name("prevozenikm").send_keys(randomb)
+    driver.find_element(by=By.NAME,value="prevozenikm").click()
+    driver.find_element(by=By.NAME,value="prevozenikm").clear()
+    driver.find_element(by=By.NAME,value="prevozenikm").send_keys(randomb)
     time.sleep(1)
-    driver.find_element_by_name("cena").click()
-    driver.find_element_by_name("cena").clear()
-    driver.find_element_by_name("cena").send_keys(randomc)
+    driver.find_element(by=By.NAME,value="cena").click()
+    driver.find_element(by=By.NAME,value="cena").clear()
+    driver.find_element(by=By.NAME,value="cena").send_keys(randomc)
     time.sleep(1)
-    driver.find_element_by_name("ADVIEW").click()
+    driver.find_element(by=By.NAME,value="ADVIEW").click()
 
     driver.get(url)
     WebDriverWait(driver, 10).until(
@@ -250,7 +250,7 @@ def kopirajInPrilepiPodatke(url):
     driver.switch_to.window(novOglasWindow)
     time.sleep(1)
     try:
-        driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
+        driver.switch_to.frame(driver.find_element(by=By.TAG_NAME,value="iframe"))
         body = driver.find_element(by=By.XPATH,value="/html/body")
         driver.execute_script('arguments[0].innerHTML = "' + innerHTML + '"', body)
         driver.switch_to.default_content()
@@ -309,7 +309,7 @@ def kopirajInPrilepiPodatke(url):
                     newCheckBox.send_keys(Keys.SPACE)
                     time.sleep(1)
     try:
-         porabaOBJAVI = driver.find_element_by_name("porabaOBJAVI")
+         porabaOBJAVI = driver.find_element(by=By.NAME,value="porabaOBJAVI")
          if porabaOBJAVI.is_selected():
              porabaOBJAVI.click() 
     except:
@@ -341,8 +341,8 @@ def dodajSlike():
                 celoIme = os.path.abspath(imeDatoteke)
                 WebDriverWait(driver, 10).until(
                     ec.presence_of_element_located((By.NAME, "fotografija"))).clear()
-                driver.find_element_by_name("fotografija").send_keys(celoIme)
-                driver.find_element_by_name("gumb" + str(n + 1)).click()
+                driver.find_element(by=By.NAME,value="fotografija").send_keys(celoIme)
+                driver.find_element(by=By.NAME,value="gumb" + str(n + 1)).click()
                 n = n + 1
                 time.sleep(1)
 
@@ -352,8 +352,8 @@ def dodajSlike():
                 celoIme = os.path.abspath(imeDatoteke)
                 WebDriverWait(driver, 10).until(
                     ec.presence_of_element_located((By.NAME, "fotografija"))).clear()
-                driver.find_element_by_name("fotografija").send_keys(celoIme)
-                driver.find_element_by_name("gumb" + str(n + 1)).click()
+                driver.find_element(by=By.NAME,value="fotografija").send_keys(celoIme)
+                driver.find_element(by=By.NAME,value="gumb" + str(n + 1)).click()
                 n = n + 1
 
     print("=> slike so dodane ")
@@ -421,7 +421,7 @@ def main():
 
     #get href of the parent element of element with class "mojtrg"
     WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.CLASS_NAME, "mojtrg")))
-    mojtrg = driver.find_element_by_class_name("mojtrg")
+    mojtrg = driver.find_element(by=By.CLASS_NAME,value="mojtrg")
     mojtrgParent = mojtrg.find_element(by=By.XPATH,value="..")
     mojtrgHref = mojtrgParent.get_attribute("href")
 
@@ -450,10 +450,10 @@ def main():
                 try:
             
                     try:
-                        result.find_element_by_class_name("ResultsAdPriceRegular")   
+                        result.find_element(by=By.CLASS_NAME,value=("ResultsAdPriceRegular")   
                     except:
-                        result.find_element_by_class_name("ResultsAdPriceAkcijaCena")
-                    urlji.append(result.find_element_by_class_name("Adlink").get_attribute("href"))
+                        result.find_element(by=By.CLASS_NAME,value=("ResultsAdPriceAkcijaCena")
+                    urlji.append(result.find_element(by=By.CLASS_NAME,value=("Adlink").get_attribute("href"))
                 except:
                     print("Avto je že prodan")
         except:
