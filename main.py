@@ -72,7 +72,7 @@ def pojdiNaUredi(url):
     imeAvta = driver.find_element(by=By.XPATH,value="/html/body/div[3]/div/div/div/div/div/h1").text.strip()
 
     imeAvta = re.sub('[^A-Za-z0-9]+', '', imeAvta)
-    slikeElements = driver.find_elements_by_tag_name("p")
+    slikeElements = driver.find_element(by=By.TAG_NAME,value="p")
     i = 1
     for slika in slikeElements:
         urlSlike = slika.get_attribute("data-src")
@@ -183,17 +183,17 @@ def kopirajInPrilepiPodatke(url):
     print("=> kopiram vse podatke o avtu")
     driver.switch_to.window(originalOglasWindow)
     time.sleep(2)
-    inputElements = driver.find_elements_by_xpath("//input[@type='text']")
+    inputElements = driver.find_element(by=By.XPATH,value="//input[@type='text']")
     inputValues = []
     for input in inputElements:
         time.sleep(1)
         inputValues.append(input.get_attribute("value"))
 
-    textAreaElements = driver.find_elements_by_tag_name("textarea")
+    textAreaElements = driver.find_element(by=By.TAG_NAME,value="textarea")
     textValues = []
     for tekst in textAreaElements:
         textValues.append(tekst.text)
-    selectElements = driver.find_elements_by_tag_name("select")
+    selectElements = driver.find_element(by=By.TAG_NAME,value="select")
     selectValues = []
     time.sleep(3)
     for select in selectElements:
@@ -203,7 +203,7 @@ def kopirajInPrilepiPodatke(url):
         selectValues.append(selectedOption)
 
     checkedCheckboxes = []
-    checkboxes = driver.find_elements_by_xpath("//input[@type='checkbox']")
+    checkboxes = driver.find_element(by=By.XPATH,value="//input[@type='checkbox']")
     for checkbox in checkboxes:
         if checkbox.is_selected():
             checkedCheckboxes.append(checkbox.get_attribute("name"))
@@ -257,7 +257,7 @@ def kopirajInPrilepiPodatke(url):
     except:
         print("")
 
-    newInputeElements = driver.find_elements_by_xpath("//input[@type='text']")
+    newInputeElements = driver.find_element(by=By.XPATH,value="//input[@type='text']")
     for newElement in newInputeElements:
         try:
             newElement.click()
@@ -268,7 +268,7 @@ def kopirajInPrilepiPodatke(url):
 
             continue
 
-    newTextElements = driver.find_elements_by_tag_name("textarea")
+    newTextElements = driver.find_element(by=By.TAG_NAME,value="textarea")
     for newElement in newTextElements:
         try:
             newElement.click()
@@ -279,7 +279,7 @@ def kopirajInPrilepiPodatke(url):
 
             continue
 
-    newSelects = driver.find_elements_by_tag_name("select")
+    newSelects = driver.find_element(by=By.TAG_NAME,value="select")
     for n in newSelects:
         try:
            
@@ -445,7 +445,7 @@ def main():
             for i in range(1, total_height, 5):
                 driver.execute_script("window.scrollTo(0, {});".format(i))
             time.sleep(5)
-            results = driver.find_elements_by_class_name("ResultsAd")
+            results = driver.find_element(by=By.CLASS_NAME,value="ResultsAd")
             for result in results:
                 try:
             
