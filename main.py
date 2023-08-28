@@ -38,7 +38,7 @@ def login(email, password):
     except:
         print("...")
 
-    box2 = driver.find_element_by_xpath("//input[@type='password']")
+    box2 = driver.find_element(by=By.XPATH,value="//input[@type='password']")
     box2.click()
     box2.clear()
     box2.send_keys(password)
@@ -69,7 +69,7 @@ def pojdiNaUredi(url):
         ec.visibility_of_element_located((By.XPATH, "/html/body/div[3]/div/small/div[1]/div[2]/div/div[7]/div[2]")))
     kilometri = kilometri.text.strip()
     kilometri = re.sub('[^A-Za-z0-9]+', '', kilometri)
-    imeAvta = driver.find_element_by_xpath("/html/body/div[3]/div/div/div/div/div/h1").text.strip()
+    imeAvta = driver.find_element(by=By.XPATH,value="/html/body/div[3]/div/div/div/div/div/h1").text.strip()
 
     imeAvta = re.sub('[^A-Za-z0-9]+', '', imeAvta)
     slikeElements = driver.find_elements_by_tag_name("p")
@@ -144,7 +144,7 @@ def ustvariNovOglasStran():
         Select(driver.find_element_by_name("leto")).select_by_visible_text("NOVO vozilo")
     time.sleep(1)
     driver.execute_script("arguments[0].click();",
-                          driver.find_element_by_xpath("//*[contains(text(),'" + gorivo + "')]"))
+                          driver.find_element(by=By.XPATH,value="//*[contains(text(),'" + gorivo + "')]"))
     time.sleep(1)
 
     driver.find_element_by_name("potrdi").click()
@@ -211,7 +211,7 @@ def kopirajInPrilepiPodatke(url):
 
     try:
         driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
-        body = driver.find_element_by_xpath("/html/body")
+        body = driver.find_element(by=By.XPATH,value="/html/body")
         innerHTML = body.get_attribute("innerHTML").replace('"', '\\"')
         driver.switch_to.default_content();
     except:
@@ -251,7 +251,7 @@ def kopirajInPrilepiPodatke(url):
     time.sleep(1)
     try:
         driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
-        body = driver.find_element_by_xpath("/html/body")
+        body = driver.find_element(by=By.XPATH,value="/html/body")
         driver.execute_script('arguments[0].innerHTML = "' + innerHTML + '"', body)
         driver.switch_to.default_content()
     except:
@@ -334,7 +334,7 @@ def dodajSlike():
         print("")
     time.sleep(5)
     try:
-        driver.find_element_by_xpath(
+        driver.find_element(by=By.XPATH,value=
             "//*[text()='Ali bi raje fotografije objavili 1 po 1, posamično? Kliknite tukaj za posamično dodajanje fotografij.']").click()
         for imeDatoteke in imenaSlik:
             if imeDatoteke.endswith(".png"):
@@ -357,7 +357,7 @@ def dodajSlike():
                 n = n + 1
 
     print("=> slike so dodane ")
-    driver.find_element_by_xpath("//*[contains(text(), 'Zaključi urejanje')]").click()
+    driver.find_element(by=By.XPATH,value="//*[contains(text(), 'Zaključi urejanje')]").click()
 
 
 def zbrisiOriginalniOglas(url):
@@ -422,7 +422,7 @@ def main():
     #get href of the parent element of element with class "mojtrg"
     WebDriverWait(driver, 10).until(ec.visibility_of_element_located((By.CLASS_NAME, "mojtrg")))
     mojtrg = driver.find_element_by_class_name("mojtrg")
-    mojtrgParent = mojtrg.find_element_by_xpath("..")
+    mojtrgParent = mojtrg.find_element(by=By.XPATH,value="..")
     mojtrgHref = mojtrgParent.get_attribute("href")
 
     broker = mojtrgHref.split("broker=")[1].split("&")[0]
