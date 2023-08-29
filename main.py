@@ -456,8 +456,8 @@ def main():
                 except:
                     print("Avto je že prodan")
         except Exception as error:
-           print(error)
-           print("Na tej strani ne najdem oglasov")
+            print(error)
+            print("Na tej strani ne najdem oglasov")
         
 
    
