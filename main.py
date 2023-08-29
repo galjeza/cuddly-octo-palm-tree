@@ -397,11 +397,9 @@ def main():
     if(rabiHeadless=="NE"):
         chrome_options.add_argument("--headless")
 
-    chromeVersion = "114.0.5735.16"
-    if(email == "dlcavto@gmail.com" or email=="avtomedvode@gmail.com" ):
-        chromeVersion = "109.0.5414.25"
-    if(email == "meglic.zdenko@gmail.com"):
-        chromeVersion = "116.0.5791.0"
+    if(email == "dlcavto@gmail.com"):
+        service = ChromeService()
+        driver = webdriver.Chrome(service=service, options=chrome_options)
                    
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)         
 
@@ -529,13 +527,11 @@ try:
     print("Email najden v podatkovni bazi.")
     placanoCell = sheet.cell(emailRow, 2).value.strip()
     rabiHeadless = sheet.cell(emailRow,10).value.strip()
-    print("$$")
     if placanoCell == "NE":
         print("NISTE NAROČENI NA PROGRAM!")
         print("ZA NAKUP PROGRAMA PIŠITE NA gal.jeza@protonmail.com")
         print("ČE STE NAROČENI NA PROGRAM IN VSEENO VIDITE TO SPOROČILO ME KONTAKTIRAJTE")
     else:
-        print("€€")
         usage = sheet.cell(emailRow,3).value.strip()
         usage = int(usage) +1
         sheet.update_cell(emailRow,3,str(usage))
@@ -543,7 +539,6 @@ try:
         root.mainloop()
 except(err):
     print(err)
-    print("google sheets eroor")
     print("NISTE NAROČENI NA PROGRAM!")
     print("ZA NAKUP PROGRAMA PIŠITE NA gal.jeza@protonmail.com")
     print("ČE STE NAROČENI NA PROGRAM IN VSEENO VIDITE TO SPOROČILO ME KONTAKTIRAJTE")
