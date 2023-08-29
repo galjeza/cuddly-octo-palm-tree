@@ -488,7 +488,7 @@ def main():
 print("=> program se zaganja...")
 root = tk.Tk()
 root.iconbitmap("avtonetdata/img/logo.ico")
-root.title("AvtoNetBot v4")
+root.title("AvtoNetBot v6")
 canvas1 = tk.Canvas(root, width=600, height=300, relief='raised')
 image = ImageTk.PhotoImage(Image.open("avtonetdata/img/tkinterozadje.jpg"))
 canvas1.create_image(0, 0, anchor=tk.NW, image=image)
