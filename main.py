@@ -397,11 +397,11 @@ def main():
     if(rabiHeadless=="NE"):
         chrome_options.add_argument("--headless")
 
-    if(email == "dlcavto@gmail.com"):
+    try:
+        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    except:
         service = ChromeService()
         driver = webdriver.Chrome(service=service, options=chrome_options)
-    else:
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)               
                           
                    
          
