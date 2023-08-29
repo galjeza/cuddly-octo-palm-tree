@@ -455,7 +455,8 @@ def main():
                     urlji.append(result.find_element(by=By.CLASS_NAME,value="Adlink").get_attribute("href"))
                 except:
                     print("Avto je že prodan")
-        except:
+        except Exception as error:
+           print(error)
             print("Na tej strani ne najdem oglasov")
         
 
