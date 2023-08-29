@@ -400,8 +400,11 @@ def main():
     if(email == "dlcavto@gmail.com"):
         service = ChromeService()
         driver = webdriver.Chrome(service=service, options=chrome_options)
+    else:
+        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)               
+                          
                    
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)         
+         
 
     print("=> vsi gonilniki uspešno pridobljeni")
 
