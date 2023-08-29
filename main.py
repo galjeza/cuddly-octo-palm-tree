@@ -402,12 +402,8 @@ def main():
         chromeVersion = "109.0.5414.25"
     if(email == "meglic.zdenko@gmail.com"):
         chromeVersion = "116.0.5791.0"
-               
-    if(email == "dlcavto@gmail.com" or email=="avtomedvode@gmail.com" ):
-        chromeVersion = "109.0.5414.25"
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager(version=chromeVersion).install()), options=chrome_options)
-    else:
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)         
+                   
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)         
 
     print("=> vsi gonilniki uspešno pridobljeni")
 
