@@ -276,9 +276,9 @@ def kopirajInPrilepiPodatke(url):
             newElement.clear()
             newElement.send_keys(textValues[newTextElements.index(newElement)])
             time.sleep(1)
-            print(textValues[newTextElements.index(newElement)])
         except Exception as  e:
-
+           
+            print(e)
             continue
 
     newSelects = driver.find_elements(by=By.TAG_NAME,value="select")
