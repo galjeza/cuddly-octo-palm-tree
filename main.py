@@ -193,6 +193,7 @@ def kopirajInPrilepiPodatke(url):
     textValues = []
     for tekst in textAreaElements:
         textValues.append(tekst.text)
+        print(tekst.text)
     selectElements = driver.find_elements(by=By.TAG_NAME,value="select")
     selectValues = []
     time.sleep(3)
@@ -275,6 +276,7 @@ def kopirajInPrilepiPodatke(url):
             newElement.clear()
             newElement.send_keys(textValues[newTextElements.index(newElement)])
             time.sleep(1)
+            print(textValues[newTextElements.index(newElement)])
         except Exception as  e:
 
             continue
